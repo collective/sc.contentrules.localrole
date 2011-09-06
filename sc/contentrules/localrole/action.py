@@ -61,6 +61,7 @@ class LocalRoleActionExecutor(object):
 
         if not principal:
             self.error(obj, _(u'No user or group found with the provided id.'))
+            return False
 
         existing_roles = list(obj.get_local_roles_for_userid(userid=principal_id))
         wanted_roles = list(set(roles + existing_roles))
