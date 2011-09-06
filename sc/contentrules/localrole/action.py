@@ -52,7 +52,7 @@ class LocalRoleActionExecutor(object):
             return False
 
         obj = self.event.object
-        roles = self.element.roles
+        roles = list(self.element.roles)
         principal_id = self.element.principal
         principal = mt.getMemberById(principal_id)
         if not principal:

@@ -2,8 +2,10 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
     xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:zcml="http://namespaces.plone.org/zcml"
     i18n_domain="sc.contentrules.localrole">
-
+    
+    <include zcml:condition="have plone-4" package="Products.CMFCore" file="permissions.zcml" />
     <include package="plone.contentrules" file="meta.zcml" />
     <include package="plone.app.contentrules" />
 
