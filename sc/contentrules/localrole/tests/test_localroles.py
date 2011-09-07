@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from zope.interface import implements, Interface
+from zope.interface import implements
 from zope.component import getUtility, getMultiAdapter
 from OFS.interfaces import IObjectManager
 from plone.contentrules.engine.interfaces import IRuleStorage
@@ -17,8 +17,6 @@ from zope.component.interfaces import IObjectEvent
 
 from Products.PloneTestCase.setup import default_user
 
-from DateTime import DateTime
-
 
 class DummyEvent(object):
     implements(IObjectEvent)
@@ -33,6 +31,8 @@ class TestLocalRoleAction(TestCase):
         self.loginAsPortalOwner()
         self.portal.invokeFactory('Folder', 'folder')
         self.folder = self.portal['folder']
+        gt = self.portal.portal_groups
+        gt.addGroup('Fav Customer', title='Our Fav Customer', roles=())
 
     def testRegistered(self):
         element = getUtility(IRuleAction,
@@ -79,6 +79,46 @@ class TestLocalRoleAction(TestCase):
                               IExecutable)
         self.assertEquals(True, ex())
         localroles = self.folder.get_local_roles_for_userid(userid=e.principal)
+        self.failUnless(tuple(e.roles)==localroles)
+
+    def testExecuteWithGroup(self):
+        e = LocalRoleAction()
+        e.principal = 'Fav Customer'
+        e.roles = set(['Reader', ])
+
+        ex = getMultiAdapter((self.portal, e, DummyEvent(self.folder)),
+                              IExecutable)
+        self.assertEquals(True, ex())
+        localroles = self.folder.get_local_roles_for_userid(userid=e.principal)
+        self.failUnless(tuple(e.roles)==localroles)
+
+    def testExecuteInterp(self):
+        # Setup scenario
+        self.portal.portal_registration.addMember('mrfoo', '12345', ())
+        self.portal.invokeFactory('Folder', 'mrfoo', title='mrfoo')
+        folder = self.portal['mrfoo']
+        e = LocalRoleAction()
+        e.principal = '${title}'
+        e.roles = set(['Reader', ])
+
+        ex = getMultiAdapter((self.portal, e, DummyEvent(folder)),
+                              IExecutable)
+        self.assertEquals(True, ex())
+        localroles = folder.get_local_roles_for_userid(userid='mrfoo')
+        self.failUnless(tuple(e.roles)==localroles)
+
+    def testExecuteInterpGroup(self):
+        # Setup scenario
+        self.portal.invokeFactory('Folder', 'customer', title='Fav Customer')
+        folder = self.portal['customer']
+        e = LocalRoleAction()
+        e.principal = '${title}'
+        e.roles = set(['Reader', ])
+
+        ex = getMultiAdapter((self.portal, e, DummyEvent(folder)),
+                              IExecutable)
+        self.assertEquals(True, ex())
+        localroles = folder.get_local_roles_for_userid(userid='Fav Customer')
         self.failUnless(tuple(e.roles)==localroles)
 
     def testExecuteWithError(self):

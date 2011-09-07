@@ -3,7 +3,8 @@ from plone.contentrules.rule.interfaces import IExecutable, IRuleElementData
 from zope.interface import implements, Interface
 from zope.component import adapts
 from zope.formlib import form
-from zope import schema
+
+from plone.stringinterp.interfaces import IStringInterpolator
 
 from OFS.SimpleItem import SimpleItem
 from Products.CMFCore.utils import getToolByName
@@ -31,7 +32,7 @@ class LocalRoleAction(SimpleItem):
     def summary(self):
         roles = ', '.join(self.roles)
         return _(u"Apply localrole ${roles} to ${principal}",
-                 mapping=dict(role=[roles],principal=self.principal))
+                 mapping=dict(role=[roles], principal=self.principal))
 
 
 class LocalRoleActionExecutor(object):
@@ -46,14 +47,19 @@ class LocalRoleActionExecutor(object):
         self.event = event
 
     def __call__(self):
+        obj = self.event.object
         mt = getToolByName(self.context, 'portal_membership', None)
         gt = getToolByName(self.context, 'portal_groups', None)
+        interpolator = IStringInterpolator(obj)
         if mt is None:
             return False
 
-        obj = self.event.object
         roles = list(self.element.roles)
         principal_id = self.element.principal
+        #User interpolator to process principal information
+        # This way it's possible to set Group_${title}
+        # and receive a Group_ContentTitle
+        principal_id = interpolator(principal_id).strip()
         principal = mt.getMemberById(principal_id)
         if not principal:
             # Must be a group
@@ -63,8 +69,8 @@ class LocalRoleActionExecutor(object):
             self.error(obj, _(u'No user or group found with the provided id.'))
             return False
 
-        existing_roles = list(obj.get_local_roles_for_userid(userid=principal_id))
-        wanted_roles = list(set(roles + existing_roles))
+        actual_roles = list(obj.get_local_roles_for_userid(principal_id))
+        wanted_roles = list(set(roles + actual_roles))
 
         try:
             obj.manage_setLocalRoles(principal_id, list(wanted_roles))
