@@ -1,0 +1,60 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-09-07 19:13+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#: ../action.py:98
+msgid "Add a Local Role Action"
+msgstr ""
+
+#: ../action.py:99
+msgid "An action that applies a local role for a user or group                       on an object."
+msgstr ""
+
+#: ../action.py:34
+msgid "Apply localrole ${roles} to ${principal}"
+msgstr ""
+
+#: ../action.py:101
+msgid "Configure element"
+msgstr ""
+
+#: ../action.py:113
+msgid "Edit a Local Role Action"
+msgstr ""
+
+#: ../action.py:69
+msgid "No user or group found with the provided id."
+msgstr ""
+
+#: ../interfaces.py:15
+msgid "Please inform the username or groupname                                       that will be used by this action."
+msgstr ""
+
+#: ../interfaces.py:20
+msgid "Roles"
+msgstr ""
+
+#: ../interfaces.py:21
+msgid "Roles to be assigned to user/group                                          in the object."
+msgstr ""
+
+#: ../action.py:89
+msgid "Unable to apply local roles on ${name}: ${error}"
+msgstr ""
+
+#: ../interfaces.py:14
+msgid "Username / Group name"
+msgstr ""
+
