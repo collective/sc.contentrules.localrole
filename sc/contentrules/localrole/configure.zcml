@@ -6,6 +6,9 @@
     i18n_domain="sc.contentrules.localrole">
     
     <include zcml:condition="have plone-4" package="Products.CMFCore" file="permissions.zcml" />
+    
+    <includeDependencies package="." />
+    
     <include package="plone.contentrules" file="meta.zcml" />
     <include package="plone.app.contentrules" />
 
