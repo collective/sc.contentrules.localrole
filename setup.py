@@ -1,4 +1,5 @@
 # -*- coding:utf-8 -*-
+
 from setuptools import setup, find_packages
 import os
 
@@ -27,11 +28,12 @@ setup(name='sc.contentrules.localrole',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'setuptools',
-          # -*- Extra requirements: -*-
-      ],
+        'setuptools',
+        ],
+      extras_require={
+        'test': ['plone.app.testing'],
+        },
       entry_points="""
-      # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
       target = plone
       """,

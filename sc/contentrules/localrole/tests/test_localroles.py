@@ -1,21 +1,26 @@
 # -*- coding:utf-8 -*-
-from zope.interface import implements
-from zope.component import getUtility, getMultiAdapter
+
+import unittest2 as unittest
+
 from OFS.interfaces import IObjectManager
+
+from zope.component import getUtility, getMultiAdapter
+from zope.component.interfaces import IObjectEvent
+from zope.interface import implements
+
+from Products.CMFCore.utils import getToolByName
+
+from plone.app.contentrules.rule import Rule
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+
 from plone.contentrules.engine.interfaces import IRuleStorage
 from plone.contentrules.rule.interfaces import IRuleAction
 from plone.contentrules.rule.interfaces import IExecutable
 
 from sc.contentrules.localrole.action import LocalRoleAction
 from sc.contentrules.localrole.action import LocalRoleEditForm
-
-from plone.app.contentrules.rule import Rule
-
-from sc.contentrules.localrole.tests.base import TestCase
-
-from zope.component.interfaces import IObjectEvent
-
-from Products.PloneTestCase.setup import default_user
+from sc.contentrules.localrole.testing import INTEGRATION_TESTING
 
 
 class DummyEvent(object):
@@ -25,12 +30,24 @@ class DummyEvent(object):
         self.object = object
 
 
-class TestLocalRoleAction(TestCase):
+class TestLocalRoleAction(unittest.TestCase):
+
+    layer = INTEGRATION_TESTING
+
+    def setUp(self):
+        self.portal = self.layer['portal']
+        setRoles(self.portal, TEST_USER_ID, ['Manager'])
+        self.portal.invokeFactory('Folder', 'test-folder')
+        #setRoles(self.portal, TEST_USER_ID, ['Member'])
+        self.folder = self.portal['test-folder']
+        # setup default user
+        acl_users = getToolByName(self.portal, 'acl_users')
+        acl_users.userFolderAddUser('user1', 'secret', ['Member'], [])
 
     def afterSetUp(self):
-        self.loginAsPortalOwner()
-        self.portal.invokeFactory('Folder', 'folder')
-        self.folder = self.portal['folder']
+        #self.loginAsPortalOwner()
+        #self.portal.invokeFactory('Folder', 'folder')
+        #self.folder = self.portal['folder']
         gt = self.portal.portal_groups
         gt.addGroup('Fav Customer', title='Our Fav Customer', roles=())
 
@@ -38,7 +55,7 @@ class TestLocalRoleAction(TestCase):
         element = getUtility(IRuleAction,
                              name='sc.contentrules.localrole.ApplyLocalRole')
         self.assertEquals('sc.contentrules.localrole.ApplyLocalRole',
-                           element.addview)
+                          element.addview)
         self.assertEquals('edit', element.editview)
         self.assertEquals(IObjectManager, element.for_)
         self.assertEquals(IObjectEvent, element.event)
@@ -54,8 +71,11 @@ class TestLocalRoleAction(TestCase):
         addview = getMultiAdapter((adding, self.portal.REQUEST),
                                    name=element.addview)
 
+        acl_users = getToolByName(self.portal, 'acl_users')
+        default_user = acl_users.getUserById('user1')
+
         addview.createAndAdd(data={'principal': default_user,
-                                    'roles': set(['Reader', ])})
+                                   'roles': set(['Reader', ])})
 
         e = rule.actions[0]
         self.failUnless(isinstance(e, LocalRoleAction))
@@ -71,15 +91,16 @@ class TestLocalRoleAction(TestCase):
         self.failUnless(isinstance(editview, LocalRoleEditForm))
 
     def testExecute(self):
+        acl_users = getToolByName(self.portal, 'acl_users')
         e = LocalRoleAction()
-        e.principal = default_user
+        e.principal = acl_users.getUserById('user1')
         e.roles = set(['Reader', ])
 
         ex = getMultiAdapter((self.portal, e, DummyEvent(self.folder)),
-                              IExecutable)
+                             IExecutable)
         self.assertEquals(True, ex())
         localroles = self.folder.get_local_roles_for_userid(userid=e.principal)
-        self.failUnless(tuple(e.roles)==localroles)
+        self.failUnless(tuple(e.roles) == localroles)
 
     def testExecuteWithGroup(self):
         e = LocalRoleAction()
@@ -90,7 +111,7 @@ class TestLocalRoleAction(TestCase):
                               IExecutable)
         self.assertEquals(True, ex())
         localroles = self.folder.get_local_roles_for_userid(userid=e.principal)
-        self.failUnless(tuple(e.roles)==localroles)
+        self.failUnless(tuple(e.roles) == localroles)
 
     def testExecuteInterp(self):
         # Setup scenario
@@ -102,10 +123,10 @@ class TestLocalRoleAction(TestCase):
         e.roles = set(['Reader', ])
 
         ex = getMultiAdapter((self.portal, e, DummyEvent(folder)),
-                              IExecutable)
+                             IExecutable)
         self.assertEquals(True, ex())
         localroles = folder.get_local_roles_for_userid(userid='mrfoo')
-        self.failUnless(tuple(e.roles)==localroles)
+        self.failUnless(tuple(e.roles) == localroles)
 
     def testExecuteInterpGroup(self):
         # Setup scenario
@@ -119,11 +140,12 @@ class TestLocalRoleAction(TestCase):
                               IExecutable)
         self.assertEquals(True, ex())
         localroles = folder.get_local_roles_for_userid(userid='Fav Customer')
-        self.failUnless(tuple(e.roles)==localroles)
+        self.failUnless(tuple(e.roles) == localroles)
 
     def testExecuteWithError(self):
+        acl_users = getToolByName(self.portal, 'acl_users')
         e = LocalRoleAction()
-        e.principal = '%s-non-existent-user' % default_user
+        e.principal = '%s-non-existent-user' % acl_users.getUserById('user1')
         e.roles = set(['Reader', ])
 
         ex = getMultiAdapter((self.portal, e, DummyEvent(self.folder)),
@@ -132,7 +154,4 @@ class TestLocalRoleAction(TestCase):
 
 
 def test_suite():
-    from unittest import TestSuite, makeSuite
-    suite = TestSuite()
-    suite.addTest(makeSuite(TestLocalRoleAction))
-    return suite
+    return unittest.defaultTestLoader.loadTestsFromName(__name__)
