@@ -43,11 +43,6 @@ class TestLocalRoleAction(unittest.TestCase):
         # setup default user
         acl_users = getToolByName(self.portal, 'acl_users')
         acl_users.userFolderAddUser('user1', 'secret', ['Member'], [])
-
-    def afterSetUp(self):
-        #self.loginAsPortalOwner()
-        #self.portal.invokeFactory('Folder', 'folder')
-        #self.folder = self.portal['folder']
         gt = self.portal.portal_groups
         gt.addGroup('Fav Customer', title='Our Fav Customer', roles=())
 
@@ -93,7 +88,7 @@ class TestLocalRoleAction(unittest.TestCase):
     def testExecute(self):
         acl_users = getToolByName(self.portal, 'acl_users')
         e = LocalRoleAction()
-        e.principal = acl_users.getUserById('user1')
+        e.principal = 'user1'
         e.roles = set(['Reader', ])
 
         ex = getMultiAdapter((self.portal, e, DummyEvent(self.folder)),
@@ -151,6 +146,21 @@ class TestLocalRoleAction(unittest.TestCase):
         ex = getMultiAdapter((self.portal, e, DummyEvent(self.folder)),
                              IExecutable)
         self.assertEquals(False, ex())
+
+    def testExecuteAsMember(self):
+        acl_users = getToolByName(self.portal, 'acl_users')
+        e = LocalRoleAction()
+        e.principal = 'user1'
+        e.roles = set(['Reader', ])
+        # User will have only Member role in the 
+        # context
+        setRoles(self.portal, TEST_USER_ID, ['Member'])
+
+        ex = getMultiAdapter((self.portal, e, DummyEvent(self.folder)),
+                             IExecutable)
+        self.assertEquals(True, ex())
+        localroles = self.folder.get_local_roles_for_userid(userid=e.principal)
+        self.failUnless(tuple(e.roles) == localroles)
 
 
 def test_suite():
