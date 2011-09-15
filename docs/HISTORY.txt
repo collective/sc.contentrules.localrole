@@ -1,8 +1,9 @@
 Changelog
-=========
+-----------
 
 0.5 (unreleased)
------------------
+^^^^^^^^^^^^^^^^^^^^
+
+* Spanish translation [hvelarde]
 
 * Initial release [erico_andrei]
-* Spanish translation [hvelarde]
