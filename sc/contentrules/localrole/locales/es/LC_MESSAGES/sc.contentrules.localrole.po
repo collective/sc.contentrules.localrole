@@ -1,60 +1,62 @@
+# Héctor Velarde <hector.velarde@gmail.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: sc.contentrules.localrole\n"
 "POT-Creation-Date: 2011-09-07 19:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: Héctor Velarde <hector.velarde@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0\n"
-"Language-Code: en\n"
-"Language-Name: English\n"
+"Plural-Forms: nplurals=2; plural=n != 1\n"
+"Language-Code: es\n"
+"Language-Name: Español\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
+"Domain: sc.contentrules.localrole\n"
+"X-Is-Fallback-For: es-ar es-bo es-cl es-co es-cr es-do es-ec es-es es-sv es-gt es-hn es-mx es-ni es-pa es-py es-pe es-pr es-us es-uy es-ve\n"
 
 #: ../action.py:98
 msgid "Add a Local Role Action"
-msgstr ""
+msgstr "Agregar un acción de rol local"
 
 #: ../action.py:99
 msgid "An action that applies a local role for a user or group                       on an object."
-msgstr ""
+msgstr "Una acción que aplica un rol local para un usuario o grupo con base en un objeto"
 
 #: ../action.py:34
 msgid "Apply localrole ${roles} to ${principal}"
-msgstr ""
+msgstr "Aplicar rol local ${roles} a ${principal}"
 
 #: ../action.py:101
 msgid "Configure element"
-msgstr ""
+msgstr "Configurar elemento"
 
 #: ../action.py:113
 msgid "Edit a Local Role Action"
-msgstr ""
+msgstr "Editar acción de rol local"
 
 #: ../action.py:69
 msgid "No user or group found with the provided id."
-msgstr ""
+msgstr "No existe un usuario o grupo con el ID indicado."
 
 #: ../interfaces.py:15
 msgid "Please inform the username or groupname                                       that will be used by this action."
-msgstr ""
+msgstr "Por favor indique el nombre de usuario o grupo que será usado por esta acción."
 
 #: ../interfaces.py:20
 msgid "Roles"
-msgstr ""
+msgstr "Roles"
 
 #: ../interfaces.py:21
 msgid "Roles to be assigned to user/group                                          in the object."
-msgstr ""
+msgstr "Roles que se le asignarán al usuario/grupo en el objeto."
 
 #: ../action.py:89
 msgid "Unable to apply local roles on ${name}: ${error}"
-msgstr ""
+msgstr "No se pudo aplicar el rol local a ${name}: ${error}"
 
 #: ../interfaces.py:14
 msgid "Username / Group name"
-msgstr ""
+msgstr "Nombre de usuario/grupo"
 

@@ -5,3 +5,4 @@ Changelog
 -----------------
 
 * Initial release [erico_andrei]
+* Spanish translation [hvelarde]
