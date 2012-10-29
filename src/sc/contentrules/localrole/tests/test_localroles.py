@@ -167,6 +167,15 @@ class TestLocalRoleAction(unittest.TestCase):
                              IExecutable)
         self.assertEquals(False, ex())
 
+    def testExecuteWithoutRole(self):
+        e = LocalRoleAction()
+        e.principal = 'user1'
+        e.roles = set()
+
+        ex = getMultiAdapter((self.portal, e, DummyEvent(self.folder)),
+                             IExecutable)
+        self.assertEquals(False, ex())
+
     def testExecuteAsMember(self):
         e = LocalRoleAction()
         e.principal = 'user1'
