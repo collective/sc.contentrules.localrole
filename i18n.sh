@@ -3,7 +3,7 @@
 # ensure that when something is wrong, nothing is broken more than it should...
 set -e
 
-BASEDIR=sc/contentrules/localrole
+BASEDIR=src/sc/contentrules/localrole
 LOCALES=$BASEDIR/locales
 
 # first, create some pot containing anything
