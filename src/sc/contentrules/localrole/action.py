@@ -31,7 +31,7 @@ class LocalRoleAction(SimpleItem):
     @property
     def summary(self):
         roles = ', '.join(self.roles)
-        return _(u"Apply localrole ${roles} to ${principal}",
+        return _(u"Apply local roles ${roles} to ${principal}",
                  mapping=dict(role=[roles], principal=self.principal))
 
 
@@ -71,7 +71,6 @@ class LocalRoleActionExecutor(object):
 
         actual_roles = list(obj.get_local_roles_for_userid(principal_id))
         wanted_roles = list(set(roles + actual_roles))
-
         try:
             obj.manage_setLocalRoles(principal_id, list(wanted_roles))
         except ConflictError, e:
