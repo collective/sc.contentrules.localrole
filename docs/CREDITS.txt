@@ -1,0 +1,16 @@
+Sponsoring
+----------
+
+Development of this product was sponsored by:
+
+    * `Simples Consultoria <http://www.simplesconsultoria.com.br/>`_.
+
+    * `IEA/USP <http://www.iea.usp.br/>`_.
+
+
+Credits
+-------
+
+    * Erico Andrei (erico at simplesconsultoria dot com dot br)
+
+    * Héctor Velarde (hector at simplesconsultoria dot com dot br)
