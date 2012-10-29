@@ -32,8 +32,17 @@ setup(name='sc.contentrules.localrole',
         'plone.stringinterp',
         ],
       extras_require={
-        'test': ['plone.app.testing'],
-        },
+          'develop': [
+              'Sphinx',
+              'manuel',
+              'pep8',
+              'setuptools-flakes',
+          ],
+          'test': [
+              'interlude',
+              'plone.app.testing'
+          ],
+      },
       entry_points="""
       [z3c.autoinclude.plugin]
       target = plone
