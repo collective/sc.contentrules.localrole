@@ -85,6 +85,13 @@ class TestLocalRoleAction(unittest.TestCase):
                                    name=element.editview)
         self.failUnless(isinstance(editview, LocalRoleEditForm))
 
+    def testActionSummary(self):
+        e = LocalRoleAction()
+        e.principal = '${title}'
+        e.roles = set(['Reader', ])
+        summary = u"Apply local roles ${roles} to ${principal}"
+        self.assertEquals(summary, e.summary)
+
     def testExecute(self):
         e = LocalRoleAction()
         e.principal = 'user1'
