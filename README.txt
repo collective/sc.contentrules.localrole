@@ -11,6 +11,10 @@ Overview
 **Content Rules: Apply local role** (sc.contentrules.localrole) package
 provides a content rule action to apply a local role in a content.
 
+This package is tested with Travis CI:
+
+.. image:: https://secure.travis-ci.org/simplesconsultoria/sc.contentrules.localrole.png
+    :target: http://travis-ci.org/simplesconsultoria/sc.contentrules.localrole
 
 Use case
 ---------
