@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-09-15 13:17+0000\n"
+"POT-Creation-Date: 2012-10-29 17:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,47 +14,43 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ../action.py:98
+#: sc/contentrules/localrole/action.py:97
 msgid "Add a Local Role Action"
 msgstr ""
 
-#: ../action.py:99
-msgid "An action that applies a local role for a user or group                       on an object."
+#: sc/contentrules/localrole/action.py:98
+msgid "An action that applies local roles for a user or group to an object."
 msgstr ""
 
-#: ../action.py:34
-msgid "Apply localrole ${roles} to ${principal}"
+#: sc/contentrules/localrole/action.py:34
+msgid "Apply local roles ${roles} to ${principal}"
 msgstr ""
 
-#: ../action.py:101
-msgid "Configure element"
-msgstr ""
-
-#: ../action.py:113
+#: sc/contentrules/localrole/action.py:111
 msgid "Edit a Local Role Action"
 msgstr ""
 
-#: ../action.py:69
+#: sc/contentrules/localrole/action.py:69
 msgid "No user or group found with the provided id."
 msgstr ""
 
-#: ../interfaces.py:15
-msgid "Please inform the username or groupname                                       that will be used by this action."
+#: sc/contentrules/localrole/interfaces.py:16
+msgid "Please inform the username or groupname that will be used by this action."
 msgstr ""
 
-#: ../interfaces.py:20
+#: sc/contentrules/localrole/interfaces.py:21
 msgid "Roles"
 msgstr ""
 
-#: ../interfaces.py:21
-msgid "Roles to be assigned to user/group                                          in the object."
+#: sc/contentrules/localrole/interfaces.py:22
+msgid "Roles to be assigned to user/group in the object."
 msgstr ""
 
-#: ../action.py:89
+#: sc/contentrules/localrole/action.py:88
 msgid "Unable to apply local roles on ${name}: ${error}"
 msgstr ""
 
-#: ../interfaces.py:14
+#: sc/contentrules/localrole/interfaces.py:15
 msgid "Username / Group name"
 msgstr ""
 

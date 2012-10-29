@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-09-15 13:10+0000\n"
+"POT-Creation-Date: 2012-10-29 17:59+0000\n"
 "PO-Revision-Date: 2011-09-15 10:11-0300\n"
 "Last-Translator: Erico Andrei <erico@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria <contato@simplesconsultoria.com.br>\n"
@@ -14,47 +14,43 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: sc.contentrules.localroles\n"
 
-#: ../action.py:98
+#: sc/contentrules/localrole/action.py:97
 msgid "Add a Local Role Action"
 msgstr "Adiciona uma regra de papéis locais"
 
-#: ../action.py:99
-msgid "An action that applies a local role for a user or group                       on an object."
-msgstr "Uma ação que aplica papéis locais a um usuário ou grupo em um objeto."
+#: sc/contentrules/localrole/action.py:98
+msgid "An action that applies local roles for a user or group to an object."
+msgstr "Ação que aplica papéis locais para usuário ou grupo em um objeto de conteúdo."
 
-#: ../action.py:34
-msgid "Apply localrole ${roles} to ${principal}"
-msgstr "Aplica papéis locais ${roles} para ${principal}"
+#: sc/contentrules/localrole/action.py:34
+msgid "Apply local roles ${roles} to ${principal}"
+msgstr "Aplicar papéis locais ${roles} para ${principal}"
 
-#: ../action.py:101
-msgid "Configure element"
-msgstr "Configura a ação"
-
-#: ../action.py:113
+#: sc/contentrules/localrole/action.py:111
 msgid "Edit a Local Role Action"
 msgstr "Editar a ação de papéis locais"
 
-#: ../action.py:69
+#: sc/contentrules/localrole/action.py:69
 msgid "No user or group found with the provided id."
 msgstr "Nenhum usuário ou grupo encontrado com o id informado."
 
-#: ../interfaces.py:15
-msgid "Please inform the username or groupname                                       that will be used by this action."
-msgstr "Por favor informe o nome de usuário ou id do grupo que será utilizado por esta ação;"
+#: sc/contentrules/localrole/interfaces.py:16
+msgid "Please inform the username or groupname that will be used by this action."
+msgstr "Por favor infomrme o nome de usuário ou grupo a ser utilizado nesta ação"
 
-#: ../interfaces.py:20
+#: sc/contentrules/localrole/interfaces.py:21
 msgid "Roles"
 msgstr "Papéis"
 
-#: ../interfaces.py:21
-msgid "Roles to be assigned to user/group                                          in the object."
-msgstr "Papéis a serem designados para o usuário / grupo no objeto."
+#: sc/contentrules/localrole/interfaces.py:22
+msgid "Roles to be assigned to user/group in the object."
+msgstr "Papéis a serem aplicados ao usuário/grupo no objeto de conteúdo."
 
-#: ../action.py:89
+#: sc/contentrules/localrole/action.py:88
 msgid "Unable to apply local roles on ${name}: ${error}"
 msgstr "Não foi possível aplicar os papéis locais em ${name}: ${error}"
 
-#: ../interfaces.py:14
+#: sc/contentrules/localrole/interfaces.py:15
 msgid "Username / Group name"
 msgstr "Nome de usuário / Nome de grupo"
 
