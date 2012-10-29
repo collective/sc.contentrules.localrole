@@ -4,36 +4,36 @@
     xmlns:plone="http://namespaces.plone.org/plone"
     xmlns:zcml="http://namespaces.plone.org/zcml"
     i18n_domain="sc.contentrules.localrole">
-    
+
     <include zcml:condition="have plone-4" package="Products.CMFCore" file="permissions.zcml" />
-    
+
     <includeDependencies package="." />
-    
+
     <include package="plone.contentrules" file="meta.zcml" />
     <include package="plone.app.contentrules" />
 
     <!-- Apply local role action -->
 
     <adapter factory=".action.LocalRoleActionExecutor" />
-    
-    <browser:page 
+
+    <browser:page
       for="plone.app.contentrules.browser.interfaces.IRuleActionAdding"
       name="sc.contentrules.localrole.ApplyLocalRole"
       class=".action.LocalRoleAddForm"
       permission="cmf.ManagePortal"
       />
-    
-    <browser:page 
+
+    <browser:page
       for="sc.contentrules.localrole.interfaces.ILocalRoleAction"
       name="edit"
       class=".action.LocalRoleEditForm"
       permission="cmf.ManagePortal"
       />
-         
+
     <plone:ruleAction
         name="sc.contentrules.localrole.ApplyLocalRole"
         title="Apply local roles"
-        description="A content rule action that applies local roles on a object."
+        description="A content rule action that applies local roles to a content object."
         for="OFS.interfaces.IObjectManager"
         event="zope.component.interfaces.IObjectEvent"
         addview="sc.contentrules.localrole.ApplyLocalRole"

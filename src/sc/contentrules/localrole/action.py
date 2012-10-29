@@ -92,13 +92,12 @@ class LocalRoleActionExecutor(object):
 
 
 class LocalRoleAddForm(AddForm):
-    """An add form for localrole action.
+    """An add form for local roles action.
     """
     form_fields = form.FormFields(ILocalRoleAction)
     label = _(u"Add a Local Role Action")
-    description = _(u"An action that applies a local role for a user or group \
-                      on an object.")
-    form_name = _(u"Configure element")
+    description = _(u"An action that applies local roles for a user or group "
+                    u"to an object.")
 
     def create(self, data):
         a = LocalRoleAction()
@@ -107,10 +106,9 @@ class LocalRoleAddForm(AddForm):
 
 
 class LocalRoleEditForm(EditForm):
-    """An edit form for workflow rule actions.
+    """An edit form for local roles action.
     """
     form_fields = form.FormFields(ILocalRoleAction)
     label = _(u"Edit a Local Role Action")
-    description = _(u"An action that applies a local role for a user or group \
-                      on an object.")
-    form_name = _(u"Configure element")
+    description = _(u"An action that applies local roles for a user or group "
+                    u"to an object.")

@@ -12,7 +12,8 @@ long_description = (open("README.txt").read() + "\n" +
 
 setup(name='sc.contentrules.localrole',
       version=version,
-      description="Plone content rule to apply a local role to a content",
+      description="Plone content rule action to apply local roles to "
+                  "a content object",
       long_description=long_description,
       classifiers=[
           "Development Status :: 5 - Production/Stable",
