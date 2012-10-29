@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import PLONE_FIXTURE
 from plone.app.testing import IntegrationTesting
@@ -20,8 +19,9 @@ FIXTURE = Fixture()
 INTEGRATION_TESTING = IntegrationTesting(
     bases=(FIXTURE,),
     name='sc.contentrules.localrole:Integration',
-    )
+)
+
 FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(FIXTURE,),
     name='sc.contentrules.localrole:Functional',
-    )
+)

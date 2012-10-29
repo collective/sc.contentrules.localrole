@@ -87,7 +87,7 @@ class LocalRoleActionExecutor(object):
         if request is not None:
             title = utils.pretty_title_or_id(obj, obj)
             message = _(u"Unable to apply local roles on ${name}: ${error}",
-                          mapping={'name': title, 'error': error})
+                        mapping={'name': title, 'error': error})
             IStatusMessage(request).addStatusMessage(message, type="error")
 
 

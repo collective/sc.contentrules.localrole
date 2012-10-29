@@ -64,7 +64,7 @@ class TestLocalRoleAction(unittest.TestCase):
 
         adding = getMultiAdapter((rule, self.portal.REQUEST), name='+action')
         addview = getMultiAdapter((adding, self.portal.REQUEST),
-                                   name=element.addview)
+                                  name=element.addview)
 
         acl_users = getToolByName(self.portal, 'acl_users')
         default_user = acl_users.getUserById('user1')
@@ -82,11 +82,10 @@ class TestLocalRoleAction(unittest.TestCase):
                              name='sc.contentrules.localrole.ApplyLocalRole')
         e = LocalRoleAction()
         editview = getMultiAdapter((e, self.folder.REQUEST),
-                                    name=element.editview)
+                                   name=element.editview)
         self.failUnless(isinstance(editview, LocalRoleEditForm))
 
     def testExecute(self):
-        acl_users = getToolByName(self.portal, 'acl_users')
         e = LocalRoleAction()
         e.principal = 'user1'
         e.roles = set(['Reader', ])
@@ -103,7 +102,7 @@ class TestLocalRoleAction(unittest.TestCase):
         e.roles = set(['Reader', ])
 
         ex = getMultiAdapter((self.portal, e, DummyEvent(self.folder)),
-                              IExecutable)
+                             IExecutable)
         self.assertEquals(True, ex())
         localroles = self.folder.get_local_roles_for_userid(userid=e.principal)
         self.failUnless(tuple(e.roles) == localroles)
@@ -132,7 +131,7 @@ class TestLocalRoleAction(unittest.TestCase):
         e.roles = set(['Reader', ])
 
         ex = getMultiAdapter((self.portal, e, DummyEvent(folder)),
-                              IExecutable)
+                             IExecutable)
         self.assertEquals(True, ex())
         localroles = folder.get_local_roles_for_userid(userid='Fav Customer')
         self.failUnless(tuple(e.roles) == localroles)
@@ -148,11 +147,10 @@ class TestLocalRoleAction(unittest.TestCase):
         self.assertEquals(False, ex())
 
     def testExecuteAsMember(self):
-        acl_users = getToolByName(self.portal, 'acl_users')
         e = LocalRoleAction()
         e.principal = 'user1'
         e.roles = set(['Reader', ])
-        # User will have only Member role in the 
+        # User will have only Member role in the
         # context
         setRoles(self.portal, TEST_USER_ID, ['Member'])
 
