@@ -129,6 +129,20 @@ class TestLocalRoleAction(unittest.TestCase):
         localroles = folder.get_local_roles_for_userid(userid='mrfoo')
         self.failUnless(tuple(e.roles) == localroles)
 
+    def testExecuteWithoutMembershipTool(self):
+        ''' Test what happens if portal_membership is not available '''
+        # Remove portal_tool
+        self.portal._delOb('portal_membership')
+
+        # Execute action
+        e = LocalRoleAction()
+        e.principal = '${title}'
+        e.roles = set(['Reader', ])
+
+        ex = getMultiAdapter((self.portal, e, DummyEvent(self.folder)),
+                             IExecutable)
+        self.assertEquals(False, ex())
+
     def testExecuteInterpGroup(self):
         # Setup scenario
         self.portal.invokeFactory('Folder', 'customer', title='Fav Customer')
