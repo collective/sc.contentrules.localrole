@@ -8,4 +8,7 @@ install:
 
 script:
   - ./pre-commit-check.sh
- 
+
+ notifications:
+  irc:
+    - "irc.freenode.org#simplesconsultoria"
