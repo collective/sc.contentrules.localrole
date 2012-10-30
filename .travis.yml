@@ -9,6 +9,6 @@ install:
 script:
   - ./pre-commit-check.sh
 
- notifications:
+notifications:
   irc:
     - "irc.freenode.org#simplesconsultoria"
