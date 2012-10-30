@@ -4,7 +4,11 @@ Changelog
 0.6 (unreleased)
 ^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+* Improve test coverage[ericof]
+
+* PEP8 [ericof]
+
+* Travis support [ericof]
 
 
 0.5 (2011-09-15)
