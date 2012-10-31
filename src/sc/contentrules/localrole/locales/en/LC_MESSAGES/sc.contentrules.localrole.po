@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-10-29 17:59+0000\n"
+"POT-Creation-Date: 2012-10-31 21:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,14 +35,14 @@ msgid "No user or group found with the provided id."
 msgstr ""
 
 #: sc/contentrules/localrole/interfaces.py:16
-msgid "Please inform the username or groupname that will be used by this action."
+msgid "Please inform the username or groupname that will be used by this action.  Use  ${title} in this field to use the content title as the value for this field."
 msgstr ""
 
-#: sc/contentrules/localrole/interfaces.py:21
+#: sc/contentrules/localrole/interfaces.py:23
 msgid "Roles"
 msgstr ""
 
-#: sc/contentrules/localrole/interfaces.py:22
+#: sc/contentrules/localrole/interfaces.py:24
 msgid "Roles to be assigned to user/group in the object."
 msgstr ""
 

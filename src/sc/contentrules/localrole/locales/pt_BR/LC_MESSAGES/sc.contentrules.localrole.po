@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-10-29 17:59+0000\n"
+"POT-Creation-Date: 2012-10-31 21:21+0000\n"
 "PO-Revision-Date: 2011-09-15 10:11-0300\n"
 "Last-Translator: Erico Andrei <erico@simplesconsultoria.com.br>\n"
 "Language-Team: Simples Consultoria <contato@simplesconsultoria.com.br>\n"
@@ -35,14 +35,14 @@ msgid "No user or group found with the provided id."
 msgstr "Nenhum usuário ou grupo encontrado com o id informado."
 
 #: sc/contentrules/localrole/interfaces.py:16
-msgid "Please inform the username or groupname that will be used by this action."
-msgstr "Por favor infomrme o nome de usuário ou grupo a ser utilizado nesta ação"
+msgid "Please inform the username or groupname that will be used by this action.  Use  ${title} in this field to use the content title as the value for this field."
+msgstr "Por favor informe o nome do usuário ou grupo que será utilizado nesta ação. Use ${title} neste campo para que o título do conteúdo seja o valor deste campo."
 
-#: sc/contentrules/localrole/interfaces.py:21
+#: sc/contentrules/localrole/interfaces.py:23
 msgid "Roles"
 msgstr "Papéis"
 
-#: sc/contentrules/localrole/interfaces.py:22
+#: sc/contentrules/localrole/interfaces.py:24
 msgid "Roles to be assigned to user/group in the object."
 msgstr "Papéis a serem aplicados ao usuário/grupo no objeto de conteúdo."
 
