@@ -15,7 +15,9 @@ class ILocalRoleAction(Interface):
     principal = TextLine(title=_(u"Username / Group name"),
                          description=_(u"Please inform the username or "
                                        u"groupname that will be used by "
-                                       u"this action."),
+                                       u"this action.  Use  ${title} in "
+                                       u"this field to use the content "
+                                       u"title as the value for this field."),
                          required=True)
 
     roles = Set(title=_(u"Roles"),
