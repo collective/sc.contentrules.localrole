@@ -1,26 +1,20 @@
 # -*- coding:utf-8 -*-
-
-import unittest2 as unittest
-
 from OFS.interfaces import IObjectManager
-
+from plone.app.contentrules.rule import Rule
+from plone.app.testing import setRoles
+from plone.app.testing import TEST_USER_ID
+from plone.contentrules.engine.interfaces import IRuleStorage
+from plone.contentrules.rule.interfaces import IExecutable
+from plone.contentrules.rule.interfaces import IRuleAction
+from Products.CMFCore.utils import getToolByName
+from sc.contentrules.localrole.action import LocalRoleAction
+from sc.contentrules.localrole.action import LocalRoleEditForm
+from sc.contentrules.localrole.testing import INTEGRATION_TESTING
 from zope.component import getUtility, getMultiAdapter
 from zope.component.interfaces import IObjectEvent
 from zope.interface import implements
 
-from Products.CMFCore.utils import getToolByName
-
-from plone.app.contentrules.rule import Rule
-from plone.app.testing import setRoles
-from plone.app.testing import TEST_USER_ID
-
-from plone.contentrules.engine.interfaces import IRuleStorage
-from plone.contentrules.rule.interfaces import IRuleAction
-from plone.contentrules.rule.interfaces import IExecutable
-
-from sc.contentrules.localrole.action import LocalRoleAction
-from sc.contentrules.localrole.action import LocalRoleEditForm
-from sc.contentrules.localrole.testing import INTEGRATION_TESTING
+import unittest2 as unittest
 
 
 class DummyEvent(object):

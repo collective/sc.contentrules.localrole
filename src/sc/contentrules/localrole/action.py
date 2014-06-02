@@ -1,22 +1,19 @@
 # -*- coding:utf-8 -*-
-from plone.contentrules.rule.interfaces import IExecutable, IRuleElementData
-from zope.interface import implements, Interface
-from zope.component import adapts
-from zope.formlib import form
-
-from plone.stringinterp.interfaces import IStringInterpolator
-
 from OFS.SimpleItem import SimpleItem
+from plone.app.contentrules.browser.formhelper import AddForm
+from plone.app.contentrules.browser.formhelper import EditForm
+from plone.contentrules.rule.interfaces import IExecutable
+from plone.contentrules.rule.interfaces import IRuleElementData
+from plone.stringinterp.interfaces import IStringInterpolator
 from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone import utils
 from Products.statusmessages.interfaces import IStatusMessage
-from ZODB.POSException import ConflictError
-
-from plone.app.contentrules.browser.formhelper import AddForm, EditForm
-
-from sc.contentrules.localrole.interfaces import ILocalRoleAction
-
 from sc.contentrules.localrole import MessageFactory as _
+from sc.contentrules.localrole.interfaces import ILocalRoleAction
+from ZODB.POSException import ConflictError
+from zope.component import adapts
+from zope.formlib import form
+from zope.interface import implements, Interface
 
 
 class LocalRoleAction(SimpleItem):

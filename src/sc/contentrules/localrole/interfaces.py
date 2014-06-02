@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
+from sc.contentrules.localrole import MessageFactory as _
 from zope.interface import Interface
-
 from zope.schema import Choice
 from zope.schema import Set
 from zope.schema import TextLine
-
-from sc.contentrules.localrole import MessageFactory as _
 
 
 class ILocalRoleAction(Interface):
