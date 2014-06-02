@@ -1,14 +1,14 @@
 # -*- coding:utf-8 -*-
-from setuptools import setup, find_packages
-import os
+from setuptools import find_packages
+from setuptools import setup
 
-version = open(os.path.join("src", "sc", "contentrules",
-                            "localrole", "version.txt")).read().strip()
+version = '1.0b3.dev0'
 
-long_description = (open("README.txt").read() + "\n" +
-                    open(os.path.join("docs", "INSTALL.txt")).read() + "\n" +
-                    open(os.path.join("docs", "CREDITS.txt")).read() + "\n" +
-                    open(os.path.join("docs", "HISTORY.txt")).read())
+long_description = (
+    open('README.rst').read() + '\n' +
+    open('CONTRIBUTORS.rst').read() + '\n' +
+    open('CHANGES.rst').read()
+)
 
 setup(name='sc.contentrules.localrole',
       version=version,
@@ -19,10 +19,10 @@ setup(name='sc.contentrules.localrole',
           "Development Status :: 5 - Production/Stable",
           "Environment :: Web Environment",
           "Framework :: Plone",
-          "Framework :: Plone :: 3.3",
           "Framework :: Plone :: 4.0",
           "Framework :: Plone :: 4.1",
           "Framework :: Plone :: 4.2",
+          "Framework :: Plone :: 4.3",
           "Framework :: Zope2",
           "Framework :: Zope3",
           "Intended Audience :: Developers",
@@ -44,8 +44,16 @@ setup(name='sc.contentrules.localrole',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
-          'setuptools',
+          'plone.app.contentrules',
+          'plone.contentrules',
           'plone.stringinterp',
+          'Products.CMFCore',
+          'Products.statusmessages',
+          'setuptools',
+          'zope.component',
+          'zope.i18nmessageid',
+          'zope.interface',
+          'zope.schema',
       ],
       extras_require={
           'develop': [
@@ -55,8 +63,8 @@ setup(name='sc.contentrules.localrole',
               'setuptools-flakes',
           ],
           'test': [
-              'interlude',
-              'plone.app.testing'
+              'plone.app.testing',
+              'unittest2',
           ],
       },
       entry_points="""
