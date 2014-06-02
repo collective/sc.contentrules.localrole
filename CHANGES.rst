@@ -3,7 +3,12 @@ Changelog
 1.0b3 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+* Fix package dependencies.
+  [hvelarde]
+
+* Coveralls support [ericof]
+
+* Implement better QA for code [ericof]
 
 
 1.0b2 (2012-11-13)
