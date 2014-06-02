@@ -183,7 +183,3 @@ class TestLocalRoleAction(unittest.TestCase):
         self.assertEquals(True, ex())
         localroles = self.folder.get_local_roles_for_userid(userid=e.principal)
         self.failUnless(tuple(e.roles) == localroles)
-
-
-def test_suite():
-    return unittest.defaultTestLoader.loadTestsFromName(__name__)
