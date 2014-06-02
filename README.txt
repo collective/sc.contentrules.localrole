@@ -14,7 +14,16 @@ provides a content rule action to apply a local role in a content.
 This package is tested with Travis CI:
 
 .. image:: https://secure.travis-ci.org/simplesconsultoria/sc.contentrules.localrole.png
+    :alt: Travis CI badge
     :target: http://travis-ci.org/simplesconsultoria/sc.contentrules.localrole
+
+.. image:: https://coveralls.io/repos/simplesconsultoria/sc.contentrules.localrole/badge.png?branch=master
+    :alt: Coveralls badge
+    :target: https://coveralls.io/r/simplesconsultoria/sc.contentrules.localrole
+
+.. image:: https://pypip.in/d/sc.contentrules.localrole/badge.png
+    :target: https://pypi.python.org/pypi/sc.contentrules.localrole/
+    :alt: Downloads
 
 Use case
 ---------
@@ -30,6 +39,22 @@ Every time a new research group is added under /research/ they want asing a loca
     * Editor local role: Given to users and groups responsible for this area.
 
     * Reader local role: Group of users with access to this area.
+
+Installation
+------------
+
+To enable this product,on a buildout based installation:
+
+1. Edit your buildout.cfg and add ``sc.contentrules.localrole``
+   to the list of eggs to install ::
+
+    [buildout]
+    ...
+    eggs =
+        sc.contentrules.localrole
+
+After updating the configuration you need to run the ''bin/buildout'',
+which will take care of updating your system.
 
 
 Action
