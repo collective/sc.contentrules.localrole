@@ -13,7 +13,8 @@ from sc.contentrules.localrole.interfaces import ILocalRoleAction
 from ZODB.POSException import ConflictError
 from zope.component import adapts
 from zope.formlib import form
-from zope.interface import implements, Interface
+from zope.interface import implements
+from zope.interface import Interface
 
 
 class LocalRoleAction(SimpleItem):
