@@ -29,7 +29,8 @@ class LocalRoleAction(SimpleItem):
     def summary(self):
         roles = ', '.join(self.roles)
         return _(u"Apply local roles ${roles} to ${principal}",
-                 mapping=dict(role=[roles], principal=self.principal))
+                 mapping=dict(roles=roles,
+                              principal=self.principal))
 
 
 class LocalRoleActionExecutor(object):
