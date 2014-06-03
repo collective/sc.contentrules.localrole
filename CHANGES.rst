@@ -1,6 +1,6 @@
 Changelog
 -----------
-1.0b3 (unreleased)
+1.0b3 (2014-06-02)
 ^^^^^^^^^^^^^^^^^^
 
 * Fix package dependencies.
