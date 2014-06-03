@@ -10,6 +10,8 @@ Changelog
 
 * Implement better QA for code [ericof]
 
+* Fix summary for content rules action [ericof]
+
 
 1.0b2 (2012-11-13)
 ^^^^^^^^^^^^^^^^^^^
