@@ -14,7 +14,7 @@ from zope.component import getUtility, getMultiAdapter
 from zope.component.interfaces import IObjectEvent
 from zope.interface import implements
 
-import unittest2 as unittest
+import unittest
 
 
 class DummyEvent(object):
