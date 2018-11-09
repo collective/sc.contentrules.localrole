@@ -17,9 +17,10 @@ This package is tested with Travis CI:
     :alt: Travis CI badge
     :target: http://travis-ci.org/collective/sc.contentrules.localrole
 
-.. image:: https://coveralls.io/repos/collective/sc.contentrules.localrole/badge.png?branch=master
+.. image:: https://coveralls.io/repos/github/collective/sc.contentrules.localrole/badge.svg
     :alt: Coveralls badge
-    :target: https://coveralls.io/r/collective/sc.contentrules.localrole
+    :target: https://coveralls.io/github/collective/sc.contentrules.localrole
+
 
 .. image:: https://pypip.in/d/sc.contentrules.localrole/badge.png
     :target: https://pypi.python.org/pypi/sc.contentrules.localrole/
