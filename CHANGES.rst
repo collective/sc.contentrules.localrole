@@ -3,7 +3,8 @@ Changelog
 1.0b4 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
-- Nothing changed yet.
+- Drop support for Python 2.6 and Plone 4.0-4.2.
+  [rodfersou]
 
 
 1.0b3 (2014-06-02)
