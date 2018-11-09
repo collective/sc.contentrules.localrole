@@ -55,7 +55,7 @@ class LocalRoleActionExecutor(object):
 
         roles = list(self.element.roles)
         principal_id = self.element.principal
-        #User interpolator to process principal information
+        # User interpolator to process principal information
         # This way it's possible to set Group_${title}
         # and receive a Group_ContentTitle
         principal_id = interpolator(principal_id).strip()
@@ -96,6 +96,7 @@ class LocalRoleAddForm(AddForm):
     label = _(u"Add a Local Role Action")
     description = _(u"An action that applies local roles for a user or group "
                     u"to an object.")
+    schema = ILocalRoleAction
 
     def create(self, data):
         a = LocalRoleAction()
@@ -110,3 +111,4 @@ class LocalRoleEditForm(EditForm):
     label = _(u"Edit a Local Role Action")
     description = _(u"An action that applies local roles for a user or group "
                     u"to an object.")
+    schema = ILocalRoleAction

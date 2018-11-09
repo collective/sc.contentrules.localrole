@@ -2,10 +2,9 @@ language: python
 python: 2.7
 env:
   - PLONE_VERSION=4.3 QA=true
-  - PLONE_VERSION=5.0
+  - PLONE_VERSION=5.0 QA=true
+  - PLONE_VERSION=5.1 QA=true
 matrix:
-  allow_failures:
-    - env: PLONE_VERSION=5.0
   fast_finish: true
 install:
   - sed -ie "s#travis-4.x.cfg#travis-$PLONE_VERSION.x.cfg#" travis.cfg

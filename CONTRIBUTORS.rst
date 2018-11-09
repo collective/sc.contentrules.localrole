@@ -8,6 +8,10 @@ of the following people:
 
 * Héctor Velarde
 
+* Jon Pentland
+
+* Rodrigo Ferreira de Souza
+
 Development sponsored by `Simples Consultoria`_ and `IEA/USP`_.
 
 .. _`Simples Consultoria`: http://www.simplesconsultoria.com.br/

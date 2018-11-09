@@ -41,6 +41,7 @@ setup(name='sc.contentrules.localrole',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+          'plone.api',
           'plone.app.contentrules',
           'plone.contentrules',
           'plone.stringinterp',
@@ -51,6 +52,7 @@ setup(name='sc.contentrules.localrole',
           'zope.i18nmessageid',
           'zope.interface',
           'zope.schema',
+          'zope.formlib'
       ],
       extras_require={
           'develop': [

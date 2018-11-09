@@ -3,6 +3,9 @@ Changelog
 1.0b4 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
+- Make compatible with Plone5.
+  [instification, rodfersou]
+
 - Drop support for Python 2.6 and Plone 4.0-4.2.
   [rodfersou]
 

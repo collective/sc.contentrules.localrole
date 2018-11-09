@@ -13,13 +13,13 @@ provides a content rule action to apply a local role in a content.
 
 This package is tested with Travis CI:
 
-.. image:: https://secure.travis-ci.org/simplesconsultoria/sc.contentrules.localrole.png
+.. image:: https://secure.travis-ci.org/collective/sc.contentrules.localrole.png
     :alt: Travis CI badge
-    :target: http://travis-ci.org/simplesconsultoria/sc.contentrules.localrole
+    :target: http://travis-ci.org/collective/sc.contentrules.localrole
 
-.. image:: https://coveralls.io/repos/simplesconsultoria/sc.contentrules.localrole/badge.png?branch=master
+.. image:: https://coveralls.io/repos/collective/sc.contentrules.localrole/badge.png?branch=master
     :alt: Coveralls badge
-    :target: https://coveralls.io/r/simplesconsultoria/sc.contentrules.localrole
+    :target: https://coveralls.io/r/collective/sc.contentrules.localrole
 
 .. image:: https://pypip.in/d/sc.contentrules.localrole/badge.png
     :target: https://pypi.python.org/pypi/sc.contentrules.localrole/

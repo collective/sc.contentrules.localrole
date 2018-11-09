@@ -2,6 +2,7 @@
 *.mo
 *.pyc
 *~
+.Python
 .coverage
 .installed.cfg
 .mr.developer.cfg
@@ -14,3 +15,5 @@ parts/
 products/
 src/
 var/
+lib/
+include/
