@@ -41,6 +41,7 @@ setup(name='sc.contentrules.localrole',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+          'five.formlib',
           'plone.api',
           'plone.app.contentrules',
           'plone.contentrules',
@@ -49,10 +50,10 @@ setup(name='sc.contentrules.localrole',
           'Products.statusmessages',
           'setuptools',
           'zope.component',
+          'zope.formlib',
           'zope.i18nmessageid',
           'zope.interface',
           'zope.schema',
-          'zope.formlib'
       ],
       extras_require={
           'develop': [
@@ -63,7 +64,6 @@ setup(name='sc.contentrules.localrole',
           ],
           'test': [
               'plone.app.testing',
-              'unittest2',
           ],
       },
       entry_points="""
