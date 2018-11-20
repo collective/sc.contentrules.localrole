@@ -13,7 +13,6 @@ eggs/
 htmlcov/
 parts/
 products/
-src/
 var/
 lib/
 include/

@@ -23,6 +23,7 @@ class LocalRoleAction(SimpleItem):
     implements(ILocalRoleAction, IRuleElementData)
 
     principal = ''
+    field = ''
     roles = ''
     element = "sc.contentrules.localrole.ApplyLocalRole"
 
@@ -49,16 +50,23 @@ class LocalRoleActionExecutor(object):
         obj = self.event.object
         mt = getToolByName(self.context, 'portal_membership', None)
         gt = getToolByName(self.context, 'portal_groups', None)
-        interpolator = IStringInterpolator(obj)
         if mt is None:
             return False
 
         roles = list(self.element.roles)
-        principal_id = self.element.principal
-        # User interpolator to process principal information
-        # This way it's possible to set Group_${title}
-        # and receive a Group_ContentTitle
-        principal_id = interpolator(principal_id).strip()
+        field = getattr(self.element, 'field', False)
+        if field:
+            value = getattr(obj, field, False)
+            if not value:
+                return False
+            principal_id = value
+        else:
+            # User interpolator to process principal information
+            # This way it's possible to set Group_${title}
+            # and receive a Group_ContentTitle
+            interpolator = IStringInterpolator(obj)
+            principal_id = self.element.principal
+            principal_id = interpolator(principal_id).strip()
         principal = mt.getMemberById(principal_id)
         if not principal:
             # Must be a group

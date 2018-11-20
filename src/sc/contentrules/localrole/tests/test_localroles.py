@@ -151,6 +151,20 @@ class TestLocalRoleAction(unittest.TestCase):
         localroles = folder.get_local_roles_for_userid(userid='Fav Customer')
         self.failUnless(tuple(e.roles) == localroles)
 
+    def testPickPrincipleFromContext(self):
+        # Setup scenario
+        self.portal.invokeFactory('Folder', 'customer', title='Fav Customer')
+        folder = self.portal['customer']
+        e = LocalRoleAction()
+        e.field = 'title'
+        e.roles = set(['Reader', ])
+
+        ex = getMultiAdapter((self.portal, e, DummyEvent(folder)),
+                             IExecutable)
+        self.assertEquals(True, ex())
+        localroles = folder.get_local_roles_for_userid(userid='Fav Customer')
+        self.failUnless(tuple(e.roles) == localroles)
+
     def testExecuteWithError(self):
         acl_users = getToolByName(self.portal, 'acl_users')
         e = LocalRoleAction()

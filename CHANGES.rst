@@ -3,6 +3,9 @@ Changelog
 1.0b4 (unreleased)
 ^^^^^^^^^^^^^^^^^^
 
+- Allow to pick principle from context item.
+  [rodfersou]
+
 - Make compatible with Plone5.
   [instification, rodfersou]
 

@@ -44,7 +44,7 @@ Every time a new research group is added under /research/ they want asing a loca
 Installation
 ------------
 
-To enable this product,on a buildout based installation:
+To enable this product on a buildout based installation:
 
 1. Edit your buildout.cfg and add ``sc.contentrules.localrole``
    to the list of eggs to install ::
@@ -68,12 +68,25 @@ Apply local role
 
 Used to create a new user group this action have three options:
 
-Username / Group name
+.. figure:: https://raw.github.com/collective/sc.contentrule.localrole/master/docs/localrole.png
+    :align: center
+    :height: 548px
+    :width: 394px
+
+    The local role content rule.
+
+User/Group ID
     Identifier of the user or group to receive the local role in the current content.
     You are allowed to use ${title} in here to dinamically generate the id of the user
     or group. i.e.: If this field have a value of **${title} Editors** and the action
     is being executed for a folder with title "Environmental Studies", this field will
-    be "Environmental Studies Editors"
+    be "Environmental Studies Editors".
+    This field should be left blank if the "Field with User/Group ID" field is filled.
+
+Field with User/Group ID
+    Pick a field on the content item which contains user/group ID to receive the 
+    permission. If the field is not found not permission will be set in sharing.
+    This field should be blank if the "User/Group ID" field is filled.
 
 Roles
     Local roles to be applied in the current content -- the one that triggered the
@@ -83,4 +96,4 @@ Roles
 Requirements
 ------------
 
-    * Plone 3.3.x and above (http://plone.org/products/plone)
+    * Plone 4.3.x and above (http://plone.org/products/plone)
