@@ -68,7 +68,7 @@ Apply local role
 
 Used to create a new user group this action have three options:
 
-.. figure:: https://raw.github.com/collective/sc.contentrule.localrole/master/docs/localrole.png
+.. figure:: https://raw.github.com/collective/sc.contentrules.localrole/master/docs/localrole.png
     :align: center
     :height: 548px
     :width: 394px
