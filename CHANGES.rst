@@ -1,6 +1,6 @@
 Changelog
 -----------
-1.0b4 (unreleased)
+1.0 (2018-11-20)
 ^^^^^^^^^^^^^^^^^^
 
 - Allow to pick principle from context item.
